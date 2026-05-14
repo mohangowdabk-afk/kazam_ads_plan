@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Kazam.Energy — Meta + Google Ads Plan (APAC, ASEAN & Africa)</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#B91C1C;--red2:#DC2626;--red-bg:#FEE2E2;--red-mid:#FCA5A5;
+  --silver:#DCDBDB;--black:#121212;--white:#FFFFFF;
+  --g1:#F5F4F4;--g2:#E8E7E7;--g3:#9CA3AF;
+  --text:#1A1A1A;--t2:#4B5563;
+  --green:#15803D;--green-bg:#DCFCE7;
+  --blue:#1D4ED8;--blue-bg:#DBEAFE;
+  --purple:#6D28D9;--purple-bg:#EDE9FE;
+  --orange:#C2410C;--orange-bg:#FFEDD5;
+  --teal:#0F766E;--teal-bg:#CCFBF1;
+  --sw:220px;
+}
+body{font-family:'Manrope',sans-serif;background:var(--g1);color:var(--text);min-height:100vh}
+
+/* SIDEBAR */
+.sidebar{position:fixed;left:0;top:0;width:var(--sw);height:100vh;background:#0D0D0D;border-right:1px solid #1F1F1F;display:flex;flex-direction:column;z-index:100;overflow-y:auto}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:#2A2A2A;border-radius:2px}
+.logo{padding:20px 16px 14px;border-bottom:1px solid #1F1F1F}
+.logo-name{font-size:15px;font-weight:800;color:var(--red);letter-spacing:-.5px}
+.logo-sub{font-size:10px;color:#555;margin-top:3px}
+.ns{font-size:8.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#333;padding:12px 16px 4px}
+.ni{display:flex;align-items:center;gap:9px;padding:7px 16px;cursor:pointer;font-size:12px;font-weight:500;color:#AAAAAA;transition:all .15s;border-left:3px solid transparent;text-decoration:none}
+.ni:hover{color:#FFF;background:rgba(255,255,255,.04)}
+.ni.active{color:#FFF;background:rgba(185,28,28,.12);border-left-color:var(--red)}
+.ni .dot{width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0;opacity:.5}
+
+/* MAIN */
+.main{margin-left:var(--sw);background:var(--g1);min-height:100vh}
+.topbar{background:var(--black);border-bottom:3px solid var(--red);padding:16px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.topbar h1{font-size:14.5px;font-weight:700;color:var(--white);letter-spacing:-.2px}
+.badge{background:var(--red);color:var(--white);font-size:10px;font-weight:700;padding:4px 11px;border-radius:3px;letter-spacing:.5px}
+
+/* SECTIONS */
+.sec{padding:24px 28px 16px;display:none}
+.sec.active{display:block}
+.sec-hd{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid var(--g2)}
+.sec-ic{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;background:var(--red-bg)}
+.sec-hd h2{font-size:18px;font-weight:800;color:var(--black);letter-spacing:-.4px}
+.sec-hd p{font-size:11.5px;color:var(--t2);margin-top:2px}
+
+/* CARDS */
+.card{background:var(--white);border-radius:10px;border:1px solid var(--g2);margin-bottom:16px;overflow:hidden}
+.ch{padding:12px 18px 10px;border-bottom:1px solid var(--g2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.ch h3{font-size:13px;font-weight:700;color:var(--black);letter-spacing:-.2px}
+.tag{font-size:9px;font-weight:700;padding:3px 9px;border-radius:3px;letter-spacing:.3px;white-space:nowrap}
+.tag.r{color:var(--red);background:var(--red-bg)}
+.tag.g{color:var(--green);background:var(--green-bg)}
+.tag.b{color:var(--blue);background:var(--blue-bg)}
+.tag.p{color:var(--purple);background:var(--purple-bg)}
+.tag.o{color:var(--orange);background:var(--orange-bg)}
+.tag.t{color:var(--teal);background:var(--teal-bg)}
+.cb{padding:14px 18px}
+
+/* STAT GRID */
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:11px;margin-bottom:16px}
+.sc{background:var(--white);border-radius:8px;padding:14px;border:1px solid var(--g2);position:relative;overflow:hidden}
+.sc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:8px 8px 0 0}
+.sc.r::after{background:var(--red)}
+.sc.b::after{background:var(--blue)}
+.sc.g::after{background:var(--green)}
+.sc.p::after{background:var(--purple)}
+.sc.o::after{background:var(--orange)}
+.sc.t::after{background:var(--teal)}
+.sl{font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--g3);margin-bottom:5px}
+.sv{font-size:24px;font-weight:800;color:var(--black);line-height:1;letter-spacing:-.5px}
+.ss{font-size:10px;color:var(--t2);margin-top:4px;line-height:1.5}
+
+/* TABLES */
+.tbl{width:100%;border-collapse:collapse;font-size:11.5px}
+.tbl th{background:var(--black);color:var(--white);font-weight:700;padding:8px 11px;text-align:left;font-size:10px;letter-spacing:.4px;border:1px solid #333;text-transform:uppercase}
+.tbl td{padding:8px 11px;text-align:left;border:1px solid var(--g2);color:var(--text);vertical-align:top;line-height:1.5}
+.tbl tr:nth-child(even) td{background:var(--g1)}
+.tbl tr.total td{background:#FEF2F2;font-weight:800;color:var(--red);border-color:var(--red-mid)}
+.tbl tr.sub td{background:#F0F9FF;font-weight:700;color:var(--blue)}
+.tbl td.num{text-align:center;font-weight:700}
+.tbl td.c{text-align:center}
+
+/* MODULE TABLE */
+.mtbl{width:100%;border-collapse:collapse;font-size:11.5px}
+.mtbl th{font-size:9.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--g3);padding:8px 11px;text-align:left;border-bottom:2px solid var(--g2);background:var(--g1)}
+.mtbl td{padding:8px 11px;border-bottom:1px solid var(--g2);vertical-align:top;line-height:1.55}
+.mtbl tr:last-child td{border-bottom:none}
+.mtbl .mod{font-weight:700;font-size:12px}
+.mtbl .mod.em{color:#B91C1C}
+.mtbl .mod.cm{color:#1D4ED8}
+.mtbl .mod.fm{color:#15803D}
+.mtbl .mod.bm{color:#6D28D9}
+.mtbl td.num{text-align:center;font-weight:700;color:var(--black)}
+.mtbl tr.gt td{background:var(--black);color:var(--white);font-weight:800;font-size:12px}
+.mtbl tr.gt td.num{color:var(--red)}
+
+/* KEYWORD PILLS */
+.kw-grid{display:flex;flex-wrap:wrap;gap:7px;padding:4px 0}
+.kw{font-size:11px;font-weight:600;padding:4px 11px;border-radius:4px;background:var(--g1);border:1px solid var(--g2);color:var(--text)}
+.kw.h{background:var(--red-bg);border-color:var(--red-mid);color:var(--red)}
+.kw.m{background:var(--blue-bg);border-color:#BFDBFE;color:var(--blue)}
+.kw.b{background:var(--green-bg);border-color:#BBF7D0;color:var(--green)}
+
+/* TARGETING GRID */
+.tg-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.tg-box{background:var(--g1);border-radius:8px;padding:13px 15px;border:1px solid var(--g2)}
+.tg-box h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:9px;color:var(--black)}
+.tg-box h4 span{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.tg-list{list-style:none;padding:0}
+.tg-list li{font-size:11.5px;color:var(--t2);padding:3px 0;display:flex;align-items:flex-start;gap:6px;line-height:1.5}
+.tg-list li::before{content:'›';color:var(--red);font-weight:800;flex-shrink:0}
+
+/* GRIDS */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}
+
+/* INSIGHT */
+.insight{background:#FFF8F8;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:10px 14px;margin-top:12px;font-size:11.5px;color:var(--t2);line-height:1.65}
+.insight strong{color:var(--black)}
+
+/* MODULE BADGE */
+.mod-hd{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.mod-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+
+.sf{height:24px}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-thumb{background:rgba(0,0,0,.12);border-radius:2px}
+@media(max-width:900px){.main{margin-left:0}.sidebar{display:none}.tg-grid,.two,.three{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="sidebar">
+  <div class="logo">
+    <div class="logo-name">kazam<span style="color:var(--silver)">.</span>energy</div>
+    <div class="logo-sub">Ads Plan · APAC, ASEAN & Africa</div>
+  </div>
+  <div class="ns">Plan</div>
+  <a class="ni active" onclick="show('structure',this)"><span class="dot"></span>Campaign Structure</a>
+  <a class="ni" onclick="show('specs',this)"><span class="dot"></span>Creative Specs</a>
+  <a class="ni" onclick="show('quantity',this)"><span class="dot"></span>Creative Quantity</a>
+  <a class="ni" onclick="show('videos',this)"><span class="dot"></span>Video Breakdown by Module</a>
+  <div class="ns">Targeting</div>
+  <a class="ni" onclick="show('meta-targeting',this)"><span class="dot"></span>Meta Targeting Filters</a>
+  <a class="ni" onclick="show('africa-keywords',this)"><span class="dot"></span>Africa — Google Keywords</a>
+</nav>
+
+<main class="main">
+<div class="topbar">
+  <h1>Meta + Google Ads Plan — APAC, ASEAN & Africa &nbsp;·&nbsp; 4-Week Flight</h1>
+  <span class="badge">MAY–JUN 2026</span>
+</div>
+
+<!-- ══════════════════ SECTION 1: CAMPAIGN STRUCTURE ══════════════════ -->
+<section id="structure" class="sec active">
+  <div class="sec-hd"><div class="sec-ic">🎯</div><div><h2>Campaign Structure</h2><p>12 campaigns · 3 regions × 2 objectives × 2 platforms · Google APAC leadgen already live</p></div></div>
+
+  <div class="sg">
+    <div class="sc r"><div class="sl">Meta Campaigns</div><div class="sv">6</div><div class="ss">3 regions × Awareness + Leadgen</div></div>
+    <div class="sc b"><div class="sl">Google Campaigns</div><div class="sv">6</div><div class="ss">APAC leadgen extending to awareness</div></div>
+    <div class="sc g"><div class="sl">Region Clusters</div><div class="sv">3</div><div class="ss">APAC · ASEAN · Africa</div></div>
+    <div class="sc p"><div class="sl">Flight Duration</div><div class="sv">4w</div><div class="ss">Creative refresh at week 2</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ch"><h3>📘 Meta — Facebook + Instagram</h3><span class="tag r">Awareness + Leadgen</span></div>
+    <div class="cb">
+      <table class="tbl">
+        <thead><tr><th>Region</th><th>Campaign 1 — Awareness</th><th>Campaign 2 — Leadgen</th><th>Placements</th></tr></thead>
+        <tbody>
+          <tr><td><strong>APAC</strong></td><td>Reach / Video Views</td><td>Instant Form + Website Conversions</td><td>Feed, Reels, Stories, Explore</td></tr>
+          <tr><td><strong>ASEAN</strong></td><td>Reach / Video Views</td><td>Instant Form + Website Conversions</td><td>Feed, Reels, Stories, Explore</td></tr>
+          <tr><td><strong>Africa</strong></td><td>Reach / Video Views</td><td>Instant Form + Website Conversions</td><td>Feed, Reels, Stories, Explore</td></tr>
+        </tbody>
+      </table>
+      <div class="insight"><strong>Ad sets per campaign:</strong> 2 — Broad audience + Interest-based. <strong>Optimization:</strong> Awareness → Reach/ThruPlay &nbsp;·&nbsp; Leadgen → Lead event / Conversion.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch"><h3>🟢 Google Ads</h3><span class="tag b">Awareness + Leadgen</span></div>
+    <div class="cb">
+      <table class="tbl">
+        <thead><tr><th>Region</th><th>Awareness</th><th>Leadgen</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>APAC</strong></td><td>YouTube + Demand Gen</td><td>Search + PMax</td><td>Leadgen live — add awareness layer</td></tr>
+          <tr><td><strong>ASEAN</strong></td><td>YouTube + Demand Gen</td><td>Search + PMax</td><td>New build</td></tr>
+          <tr><td><strong>Africa</strong></td><td>YouTube + Demand Gen</td><td>Search + PMax</td><td>New — country-level ad sets per market</td></tr>
+        </tbody>
+      </table>
+      <div class="insight"><strong>Search:</strong> 1 ad group per cluster · High-intent EV charging keywords. &nbsp;<strong>PMax:</strong> Asset group per region with all aspect ratios + lead form extension. &nbsp;<strong>YouTube:</strong> Skippable + Bumper + Shorts.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SECTION 2: CREATIVE SPECS ══════════════════ -->
+<section id="specs" class="sec">
+  <div class="sec-hd"><div class="sec-ic">📐</div><div><h2>Creative Specs</h2><p>Platform-by-platform asset specifications — all placements</p></div></div>
+
+  <div class="two">
+    <div class="card">
+      <div class="ch"><h3>📘 Meta — Static Image</h3><span class="tag r">JPG / PNG &lt;30 MB</span></div>
+      <div class="cb">
+        <table class="tbl">
+          <thead><tr><th>Placement</th><th>Aspect</th><th>Resolution</th></tr></thead>
+          <tbody>
+            <tr><td>Feed (FB + IG)</td><td class="c">1:1</td><td class="c">1080×1080</td></tr>
+            <tr><td>Stories / Reels</td><td class="c">9:16</td><td class="c">1080×1920</td></tr>
+            <tr><td>Right column / Display</td><td class="c">1.91:1</td><td class="c">1200×628</td></tr>
+            <tr><td>Carousel cards</td><td class="c">1:1</td><td class="c">1080×1080</td></tr>
+          </tbody>
+        </table>
+        <div class="insight">Primary text ≤125 chars · Headline ≤27 chars · Stories safe zone: top/bottom 250 px.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ch"><h3>📘 Meta — Video</h3><span class="tag r">MP4/MOV · H.264 · ≤4 GB · 30fps</span></div>
+      <div class="cb">
+        <table class="tbl">
+          <thead><tr><th>Placement</th><th>Aspect</th><th>Resolution</th><th>Length</th></tr></thead>
+          <tbody>
+            <tr><td>Feed</td><td class="c">1:1 / 4:5</td><td class="c">1080×1080 / 1080×1350</td><td class="c">15s / 30s</td></tr>
+            <tr><td>Reels / Stories</td><td class="c">9:16</td><td class="c">1080×1920</td><td class="c">6s / 15s / 30s</td></tr>
+            <tr><td>In-stream</td><td class="c">16:9</td><td class="c">1920×1080</td><td class="c">5–15s</td></tr>
+          </tbody>
+        </table>
+        <div class="insight">Burned-in captions (85% watch muted) · Logo in first 3s · CTA card last 2s.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two">
+    <div class="card">
+      <div class="ch"><h3>🟢 Google — Display & Demand Gen</h3><span class="tag b">Responsive</span></div>
+      <div class="cb">
+        <table class="tbl">
+          <thead><tr><th>Asset Type</th><th>Sizes</th></tr></thead>
+          <tbody>
+            <tr><td>Responsive Display</td><td>1200×1200 · 1200×628 · 1200×1500</td></tr>
+            <tr><td>Logos</td><td>1200×1200 + 1200×300</td></tr>
+            <tr><td>Demand Gen image</td><td>1080×1080 · 1080×1920 · 1200×628</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ch"><h3>🟢 Google — YouTube</h3><span class="tag b">1920×1080 master · MP4 H.264</span></div>
+      <div class="cb">
+        <table class="tbl">
+          <thead><tr><th>Format</th><th>Aspect</th><th>Length</th></tr></thead>
+          <tbody>
+            <tr><td>Bumper</td><td class="c">16:9</td><td class="c">6s</td></tr>
+            <tr><td>Skippable in-stream</td><td class="c">16:9</td><td class="c">15s + 30s</td></tr>
+            <tr><td>YouTube Shorts</td><td class="c">9:16</td><td class="c">15–30s</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="two">
+    <div class="card">
+      <div class="ch"><h3>🟢 Google — Search RSA</h3><span class="tag b">Per ad group</span></div>
+      <div class="cb">
+        <table class="tbl">
+          <thead><tr><th>Element</th><th>Limit</th></tr></thead>
+          <tbody>
+            <tr><td>Headlines</td><td>15 × 30 chars</td></tr>
+            <tr><td>Descriptions</td><td>4 × 90 chars</td></tr>
+            <tr><td>Sitelinks</td><td>4</td></tr>
+            <tr><td>Callouts</td><td>6</td></tr>
+            <tr><td>Extensions</td><td>Lead form + Structured snippets</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ch"><h3>🎞 GIF / HTML5 Banners</h3><span class="tag g">Display network</span></div>
+      <div class="cb">
+        <table class="tbl">
+          <thead><tr><th>Spec</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Sizes</td><td>300×250 · 728×90 · 320×50 · 160×600 · 300×600</td></tr>
+            <tr><td>GIF file size</td><td>&lt;5 MB</td></tr>
+            <tr><td>HTML5 file size</td><td>&lt;150 KB</td></tr>
+            <tr><td>Max loop</td><td>30s · ≤3 loops</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SECTION 3: CREATIVE QUANTITY ══════════════════ -->
+<section id="quantity" class="sec">
+  <div class="sec-hd"><div class="sec-ic">📦</div><div><h2>Creative Quantity — By Module</h2><p>50 images · 10 GIFs · 8 videos · split across 4 Kazam.energy solution modules · CTA: kazam.energy &amp; Solutions page</p></div></div>
+
+  <div class="sg">
+    <div class="sc r"><div class="sl">Image Assets</div><div class="sv">50</div><div class="ss">Across 4 modules</div></div>
+    <div class="sc b"><div class="sl">GIF / HTML5</div><div class="sv">10</div><div class="ss">Display banners</div></div>
+    <div class="sc p"><div class="sl">Videos</div><div class="sv">8</div><div class="ss">Master + cutdowns</div></div>
+    <div class="sc g"><div class="sl">Total</div><div class="sv">68</div><div class="ss">3 regions · EN + regional lang</div></div>
+  </div>
+
+  <!-- MODULE LEGEND -->
+  <div class="card">
+    <div class="ch"><h3>🔖 Module Key</h3></div>
+    <div class="cb">
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <span style="display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700"><span style="width:12px;height:12px;background:#B91C1C;border-radius:3px;display:inline-block"></span>Energy Management</span>
+        <span style="display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700"><span style="width:12px;height:12px;background:#1D4ED8;border-radius:3px;display:inline-block"></span>Charging Management</span>
+        <span style="display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700"><span style="width:12px;height:12px;background:#15803D;border-radius:3px;display:inline-block"></span>Fleet Management</span>
+        <span style="display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700"><span style="width:12px;height:12px;background:#6D28D9;border-radius:3px;display:inline-block"></span>Battery Management</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMAGE ASSETS TABLE -->
+  <div class="card">
+    <div class="ch"><h3>🖼 Image Assets — 50 total</h3><span class="tag r">Meta + Google</span></div>
+    <div class="cb">
+      <table class="mtbl">
+        <thead>
+          <tr><th>Module</th><th>Asset Type</th><th>Aspect</th><th class="num">Qty</th><th>Placement / Use</th><th>CTA</th></tr>
+        </thead>
+        <tbody>
+          <!-- ENERGY MANAGEMENT -->
+          <tr><td rowspan="3"><span class="mod em">⚡ Energy Management</span></td><td>Feed static</td><td class="c">1:1</td><td class="num">3</td><td>FB/IG Feed — awareness</td><td>Visit kazam.energy</td></tr>
+          <tr><td>Stories / Reels</td><td class="c">9:16</td><td class="num">2</td><td>Stories, Reels</td><td>Explore Solutions</td></tr>
+          <tr><td>Display (RDA)</td><td class="c">1.91:1</td><td class="num">2</td><td>Google Display</td><td>Visit kazam.energy</td></tr>
+          <!-- CHARGING MANAGEMENT -->
+          <tr><td rowspan="3"><span class="mod cm">🔌 Charging Management</span></td><td>Feed static</td><td class="c">1:1</td><td class="num">3</td><td>FB/IG Feed — awareness</td><td>Explore Solutions</td></tr>
+          <tr><td>Stories / Reels</td><td class="c">9:16</td><td class="num">2</td><td>Stories, Reels</td><td>Visit kazam.energy</td></tr>
+          <tr><td>Demand Gen</td><td class="c">9:16</td><td class="num">2</td><td>YouTube Discover</td><td>Explore Solutions</td></tr>
+          <!-- FLEET MANAGEMENT -->
+          <tr><td rowspan="3"><span class="mod fm">🚛 Fleet Management</span></td><td>Feed static</td><td class="c">1:1</td><td class="num">3</td><td>FB/IG Feed — leadgen</td><td>Book a Demo</td></tr>
+          <tr><td>Carousel (5 cards)</td><td class="c">1:1</td><td class="num">5</td><td>Meta carousel</td><td>See All Solutions</td></tr>
+          <tr><td>Display (RDA)</td><td class="c">4:5</td><td class="num">3</td><td>Google Display + Demand Gen</td><td>Book a Demo</td></tr>
+          <!-- BATTERY MANAGEMENT -->
+          <tr><td rowspan="3"><span class="mod bm">🔋 Battery Management</span></td><td>Feed static</td><td class="c">1:1</td><td class="num">3</td><td>FB/IG Feed — awareness</td><td>Visit kazam.energy</td></tr>
+          <tr><td>Carousel (5 cards)</td><td class="c">1:1</td><td class="num">5</td><td>Meta carousel</td><td>Explore Solutions</td></tr>
+          <tr><td>Demand Gen</td><td class="c">9:16</td><td class="num">3</td><td>YouTube Discover</td><td>Visit kazam.energy</td></tr>
+          <!-- LOGOS + BRAND -->
+          <tr><td><span style="font-weight:700;color:var(--g3)">Brand / Logo files</span></td><td>Logos</td><td class="c">1:1 + horiz</td><td class="num">3</td><td>PMax / RDA required</td><td>—</td></tr>
+          <tr><td colspan="3" style="font-weight:800">Display 4:5 top-ups</td><td class="num">10</td><td colspan="2">Remaining RDA slots — split evenly across modules</td></tr>
+          <tr class="gt"><td colspan="3"><strong>Total Image Assets</strong></td><td class="num">50</td><td colspan="2">~17 per region cluster · EN + regional text overlay</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="two">
+    <!-- GIF TABLE -->
+    <div class="card">
+      <div class="ch"><h3>🎞 GIF / HTML5 Banners — 10 total</h3><span class="tag b">2–3 modules per size</span></div>
+      <div class="cb">
+        <table class="mtbl">
+          <thead><tr><th>Banner Size</th><th>Module</th><th class="num">Qty</th></tr></thead>
+          <tbody>
+            <tr><td>300×250</td><td><span class="mod em">⚡ Energy Mgmt</span></td><td class="num">1</td></tr>
+            <tr><td>300×250</td><td><span class="mod cm">🔌 Charging Mgmt</span></td><td class="num">1</td></tr>
+            <tr><td>300×250</td><td><span class="mod fm">🚛 Fleet Mgmt</span></td><td class="num">1</td></tr>
+            <tr><td>728×90</td><td><span class="mod bm">🔋 Battery Mgmt</span></td><td class="num">1</td></tr>
+            <tr><td>728×90</td><td><span class="mod em">⚡ Energy Mgmt</span></td><td class="num">1</td></tr>
+            <tr><td>320×50</td><td><span class="mod cm">🔌 Charging Mgmt</span></td><td class="num">1</td></tr>
+            <tr><td>320×50</td><td><span class="mod fm">🚛 Fleet Mgmt</span></td><td class="num">1</td></tr>
+            <tr><td>160×600</td><td><span class="mod bm">🔋 Battery Mgmt</span></td><td class="num">1</td></tr>
+            <tr><td>300×600</td><td><span class="mod em">⚡ Energy Mgmt</span></td><td class="num">1</td></tr>
+            <tr><td>300×600</td><td><span class="mod cm">🔌 Charging Mgmt</span></td><td class="num">1</td></tr>
+            <tr class="gt"><td colspan="2">Total GIFs</td><td class="num">10</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- VIDEO TABLE -->
+    <div class="card">
+      <div class="ch"><h3>🎬 Videos — 8 total</h3><span class="tag g">Master shoot + cutdowns</span></div>
+      <div class="cb">
+        <table class="mtbl">
+          <thead><tr><th>Asset</th><th>Aspect</th><th>Length</th><th class="num">Qty</th></tr></thead>
+          <tbody>
+            <tr><td>Hero brand film (all modules)</td><td class="c">16:9</td><td class="c">30s</td><td class="num">1</td></tr>
+            <tr><td>Hero cutdown</td><td class="c">16:9</td><td class="c">15s</td><td class="num">1</td></tr>
+            <tr><td>Bumper</td><td class="c">16:9</td><td class="c">6s</td><td class="num">1</td></tr>
+            <tr><td>Vertical hero</td><td class="c">9:16</td><td class="c">15s</td><td class="num">2</td></tr>
+            <tr><td>Vertical cutdown</td><td class="c">9:16</td><td class="c">6s</td><td class="num">1</td></tr>
+            <tr><td>Square cutdown</td><td class="c">1:1</td><td class="c">15s</td><td class="num">1</td></tr>
+            <tr><td>Product / Dashboard demo</td><td class="c">16:9</td><td class="c">30s</td><td class="num">1</td></tr>
+            <tr class="gt"><td colspan="3">Total Videos</td><td class="num">8</td></tr>
+          </tbody>
+        </table>
+        <div class="insight" style="margin-top:10px">One master shoot · cutdowns generated in edit · caption tracks swapped per region. Each module featured in hero film with chapter cards.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SECTION 4: VIDEO BREAKDOWN BY MODULE ══════════════════ -->
+<section id="videos" class="sec">
+  <div class="sec-hd"><div class="sec-ic">🎬</div><div><h2>Video Breakdown by Module</h2><p>8 videos across 4 Kazam.energy modules · one master shoot · CTA: kazam.energy &amp; Solutions page</p></div></div>
+
+  <div class="sg">
+    <div class="sc g"><div class="sl">Fleet Management</div><div class="sv">3</div><div class="ss">Hero 30s · Vertical 15s · Bumper 6s</div></div>
+    <div class="sc r"><div class="sl">Energy Management</div><div class="sv">2</div><div class="ss">Hero 15s · Vertical 15s</div></div>
+    <div class="sc b"><div class="sl">Charging Management</div><div class="sv">2</div><div class="ss">Hero 15s · Vertical 6s</div></div>
+    <div class="sc p"><div class="sl">Battery Management</div><div class="sv">1</div><div class="ss">Product demo 30s</div></div>
+  </div>
+
+  <!-- FLEET MANAGEMENT — LEAD MODULE -->
+  <div class="card">
+    <div class="ch"><h3>🚛 Fleet Management — 3 Videos</h3><span class="tag g">Lead module · Africa + APAC + ASEAN</span></div>
+    <div class="cb">
+      <table class="tbl">
+        <thead><tr><th>Asset</th><th>Aspect</th><th>Length</th><th>Platform</th><th>CTA</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Hero Brand Film</strong></td><td class="c">16:9</td><td class="c">30s</td><td>YouTube in-stream · Meta Feed · Demand Gen</td><td>Book a Demo</td></tr>
+          <tr><td><strong>Vertical Hero</strong></td><td class="c">9:16</td><td class="c">15s</td><td>Reels · Stories · YouTube Shorts</td><td>Explore Solutions</td></tr>
+          <tr><td><strong>Bumper</strong></td><td class="c">16:9</td><td class="c">6s</td><td>YouTube pre-roll · Google Display</td><td>kazam.energy</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ENERGY MANAGEMENT -->
+  <div class="card">
+    <div class="ch"><h3>⚡ Energy Management — 2 Videos</h3><span class="tag r">APAC + ASEAN + Africa commercial</span></div>
+    <div class="cb">
+      <table class="tbl">
+        <thead><tr><th>Asset</th><th>Aspect</th><th>Length</th><th>Platform</th><th>CTA</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Hero Cutdown</strong></td><td class="c">16:9</td><td class="c">15s</td><td>YouTube in-stream · Meta Feed · Demand Gen</td><td>Visit kazam.energy</td></tr>
+          <tr><td><strong>Vertical Hero</strong></td><td class="c">9:16</td><td class="c">15s</td><td>Reels · Stories · YouTube Shorts</td><td>Explore Solutions</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CHARGING MANAGEMENT -->
+  <div class="card">
+    <div class="ch"><h3>🔌 Charging Management — 2 Videos</h3><span class="tag b">B2B CPO + fleet operators</span></div>
+    <div class="cb">
+      <table class="tbl">
+        <thead><tr><th>Asset</th><th>Aspect</th><th>Length</th><th>Platform</th><th>CTA</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Hero Cutdown</strong></td><td class="c">16:9</td><td class="c">15s</td><td>YouTube in-stream · Meta Feed · Google Display</td><td>Request a Demo</td></tr>
+          <tr><td><strong>Vertical Cutdown</strong></td><td class="c">9:16</td><td class="c">6s</td><td>Stories · YouTube Shorts · Reels</td><td>kazam.energy</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- BATTERY MANAGEMENT -->
+  <div class="card">
+    <div class="ch"><h3>🔋 Battery Management — 1 Video</h3><span class="tag p">OEM + fleet operators + battery-as-a-service</span></div>
+    <div class="cb">
+      <table class="tbl">
+        <thead><tr><th>Asset</th><th>Aspect</th><th>Length</th><th>Platform</th><th>CTA</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Product / Dashboard Demo</strong></td><td class="c">16:9</td><td class="c">30s</td><td>YouTube skippable · Meta Leadgen · Demand Gen</td><td>Explore Solutions</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SHOOT SUMMARY -->
+  <div class="card">
+    <div class="ch"><h3>🎥 Shoot Summary</h3><span class="tag g">Brief-ready for production</span></div>
+    <div class="cb">
+      <table class="tbl">
+        <thead><tr><th>Module</th><th>Videos</th><th>Hero Scene</th><th>Formats Out</th></tr></thead>
+        <tbody>
+          <tr><td><strong>🚛 Fleet</strong></td><td class="num">3</td><td>Depot · EV charging overnight · Fleet dashboard</td><td>16:9 30s · 9:16 15s · 16:9 6s bumper</td></tr>
+          <tr><td><strong>⚡ Energy</strong></td><td class="num">2</td><td>EMS dashboard · Facility · Solar</td><td>16:9 15s · 9:16 15s</td></tr>
+          <tr><td><strong>🔌 Charging</strong></td><td class="num">2</td><td>Public charger · OCPP CMS dashboard</td><td>16:9 15s · 9:16 6s</td></tr>
+          <tr><td><strong>🔋 Battery</strong></td><td class="num">1</td><td>BMS dashboard · Battery swap station</td><td>16:9 30s</td></tr>
+          <tr class="total"><td><strong>Total</strong></td><td class="num">8</td><td>1 master shoot · cutdowns in edit</td><td>All formats from single day shoot</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SECTION 5: META TARGETING FILTERS ══════════════════ -->
+<section id="meta-targeting" class="sec">
+  <div class="sec-hd"><div class="sec-ic">🎯</div><div><h2>Meta Targeting — Audiences</h2><p>1 Awareness + 1 Leadgen per region · Template: Kazam Ind_SAAS saved audience · Age 28+ across all regions</p></div></div>
+  <div class="insight" style="margin-bottom:16px"><strong>Template reference:</strong> All audiences built from the Kazam Meta account Ind_SAAS audience — Layer 1 (EV + mobility interests) narrowed by Layer 2 (decision-maker job titles) + education filter. Location and language adapted per region.</div>
+  <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--g3);margin:4px 0 10px">🌏 APAC — IN · AU · JP · KR · NZ · TW · HK</div>
+  <div class="two">
+    <div class="card">
+      <div class="ch"><h3>Awareness</h3><span class="tag r">Reach · ThruPlay</span></div>
+      <div class="cb"><table class="tbl"><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody>
+        <tr><td>Age</td><td>28 – 55 · All genders</td></tr>
+        <tr><td>Locations</td><td>India (Delhi, Mumbai, Bangalore, Pune, Chennai) · Australia (Sydney, Melbourne) · Japan (Tokyo, Osaka) · South Korea (Seoul, Busan) · New Zealand (Auckland) · Taiwan (Taipei) · Hong Kong</td></tr>
+        <tr><td>Language</td><td>English</td></tr>
+        <tr><td>Interests (match any)</td><td>Electric vehicle · Fleet management · Renewable energy · Automotive industry · Electric motorcycles &amp; scooters · Logistics · Hybrid electric vehicle · Automobiles</td></tr>
+        <tr><td>Narrow by (AND)</td><td>Business Owner · CEO · MD · Director · Fleet Manager · Procurement Manager · Transportation planning · Infrastructure Engineer · Sustainability</td></tr>
+        <tr><td>Education</td><td>University graduate or above</td></tr>
+        <tr><td>Placements</td><td>Feed · Reels · Stories (auto)</td></tr>
+        <tr><td>Exclude</td><td>Website visitors 180d · Existing leads</td></tr>
+      </tbody></table></div>
+    </div>
+    <div class="card">
+      <div class="ch"><h3>Leadgen</h3><span class="tag g">Leads · Instant Form</span></div>
+      <div class="cb"><table class="tbl"><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody>
+        <tr><td>Age</td><td>28 – 55 · All genders</td></tr>
+        <tr><td>Locations</td><td>India (Delhi, Mumbai, Bangalore, Pune, Chennai) · Australia (Sydney, Melbourne) · Japan (Tokyo, Osaka) · South Korea (Seoul, Busan) · New Zealand (Auckland) · Taiwan (Taipei) · Hong Kong</td></tr>
+        <tr><td>Language</td><td>English</td></tr>
+        <tr><td>Interests (match any)</td><td>Electric vehicle · Fleet management · Renewable energy · Automotive industry · Electric motorcycles &amp; scooters · Logistics · Hybrid electric vehicle · Automobiles</td></tr>
+        <tr><td>Narrow by (AND)</td><td>CEO · MD/CEO · Business Owner · Founder · Managing Director · Chief procurement officer · Purchasing Manager · Supply Chain Procurement Manager · Fleet Manager/Dispatch · BDM</td></tr>
+        <tr><td>Education</td><td>University graduate or above</td></tr>
+        <tr><td>Income</td><td>Top 25–50% (available: AU · JP · KR · HK · TW · NZ)</td></tr>
+        <tr><td>Optimization</td><td>Leads — Instant Form · Pre-fill: name, company, phone</td></tr>
+        <tr><td>Form question</td><td>Fleet size / No. of vehicles / Business type</td></tr>
+        <tr><td>Exclude</td><td>HubSpot contacts · Website visitors 180d · Current customers</td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+  <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--g3);margin:8px 0 10px">🌴 ASEAN — ID · VN · PH · TH · MY · SG</div>
+  <div class="two">
+    <div class="card">
+      <div class="ch"><h3>Awareness</h3><span class="tag r">Reach · ThruPlay</span></div>
+      <div class="cb"><table class="tbl"><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody>
+        <tr><td>Age</td><td>28 – 50 · All genders</td></tr>
+        <tr><td>Locations</td><td>Indonesia (Jakarta, Surabaya) · Vietnam (HCM, Hanoi) · Philippines (Manila) · Thailand · Malaysia · Singapore</td></tr>
+        <tr><td>Language</td><td>English · Bahasa Indonesia · Vietnamese</td></tr>
+        <tr><td>Interests (match any)</td><td>Electric motorcycles &amp; scooters · Motorcycles · Scooters · Fleet management · Logistics · Renewable energy · Electric vehicle · Automobiles · Hybrid electric vehicle</td></tr>
+        <tr><td>Narrow by (AND)</td><td>Business Owner · CEO · Founder · Director · Fleet Manager · Logistics coordinator · Transportation planning · Operations Manager</td></tr>
+        <tr><td>Education</td><td>University graduate or above</td></tr>
+        <tr><td>Placements</td><td>Feed · Reels · Stories (mobile-first)</td></tr>
+        <tr><td>Exclude</td><td>Website visitors 180d · Existing leads</td></tr>
+      </tbody></table></div>
+    </div>
+    <div class="card">
+      <div class="ch"><h3>Leadgen</h3><span class="tag g">Leads · Instant Form</span></div>
+      <div class="cb"><table class="tbl"><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody>
+        <tr><td>Age</td><td>28 – 50 · All genders</td></tr>
+        <tr><td>Locations</td><td>Indonesia (Jakarta, Surabaya) · Vietnam (HCM, Hanoi) · Philippines (Manila) · Thailand · Malaysia · Singapore</td></tr>
+        <tr><td>Language</td><td>English · Bahasa Indonesia · Vietnamese</td></tr>
+        <tr><td>Interests (match any)</td><td>Electric motorcycles &amp; scooters · Fleet management · Logistics · Electric vehicle · Renewable energy · Automotive industry</td></tr>
+        <tr><td>Narrow by (AND)</td><td>Business Owner · CEO · Founder · Managing Director · Fleet Manager · Procurement Manager · BDM · Supply Chain</td></tr>
+        <tr><td>Education</td><td>University graduate or above</td></tr>
+        <tr><td>Optimization</td><td>Leads — Instant Form · Pre-fill: name, company, phone</td></tr>
+        <tr><td>Form question</td><td>No. of riders / vehicles · Business type</td></tr>
+        <tr><td>Exclude</td><td>HubSpot contacts · Website visitors 180d · Current customers</td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+  <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--g3);margin:8px 0 4px">🌍 Africa — 4 Sub-Region Clusters</div>
+  <div style="font-size:10.5px;color:#4B5563;margin-bottom:10px;line-height:1.7">🟢 <strong>East Africa</strong> — Kenya · Rwanda · Ethiopia · Tanzania · Uganda &nbsp;|&nbsp; 🔵 <strong>North Africa</strong> — Morocco · Egypt · Tunisia &nbsp;|&nbsp; 🟤 <strong>Southern Africa</strong> — South Africa · Zambia · Zimbabwe &nbsp;|&nbsp; 🟠 <strong>West Africa</strong> — Ghana · Nigeria · Senegal · Côte d&apos;Ivoire</div>
+  <div class="two">
+    <div class="card">
+      <div class="ch"><h3>Awareness</h3><span class="tag r">Reach · Video Views</span></div>
+      <div class="cb"><table class="tbl"><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody>
+        <tr><td>Age</td><td>28 – 55 · All genders</td></tr>
+        <tr><td>Locations</td><td><strong>East Africa:</strong> Nairobi &amp; Mombasa (KE) · Kigali (RW) · Addis Ababa (ETH) · Dar es Salaam (TZ) · Kampala (UG)<br><strong>North Africa:</strong> Cairo &amp; Alexandria (EG) · Casablanca &amp; Rabat (MA) · Tunis (TN)<br><strong>Southern Africa:</strong> Johannesburg · Cape Town · Durban (ZA) · Lusaka (ZM) · Harare (ZW)<br><strong>West Africa:</strong> Lagos &amp; Abuja (NG) · Accra &amp; Kumasi (GH) · Dakar (SN) · Abidjan (CI)</td></tr>
+        <tr><td>Language</td><td>English · Arabic (EG, MA, TN) · French (MA, RW, SN, CI, TN) · Amharic (ETH) · Swahili (KE, TZ, UG)</td></tr>
+        <tr><td>Interests (match any)</td><td>Electric vehicle · Fleet management · Renewable energy · Automotive industry · Electric motorcycles &amp; scooters · Logistics · Hybrid electric vehicle · Automobiles · Motorcycles · Scooters</td></tr>
+        <tr><td>Narrow by (AND)</td><td>Business Owner · CEO · MD · Founder · Director · Fleet Manager · Procurement Manager · Transportation planning · Infrastructure Engineer · Sustainability</td></tr>
+        <tr><td>Education</td><td>University graduate or above</td></tr>
+        <tr><td>Device</td><td>Mobile-first · Android priority</td></tr>
+        <tr><td>Placements</td><td>Feed · Reels · Stories</td></tr>
+        <tr><td>Exclude</td><td>Website visitors 180d · Existing leads</td></tr>
+      </tbody></table></div>
+    </div>
+    <div class="card">
+      <div class="ch"><h3>Leadgen</h3><span class="tag g">Leads · Instant Form</span></div>
+      <div class="cb"><table class="tbl"><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody>
+        <tr><td>Age</td><td>28 – 55 · All genders</td></tr>
+        <tr><td>Locations</td><td><strong>East Africa:</strong> Nairobi &amp; Mombasa (KE) · Kigali (RW) · Addis Ababa (ETH) · Dar es Salaam (TZ) · Kampala (UG)<br><strong>North Africa:</strong> Cairo &amp; Alexandria (EG) · Casablanca &amp; Rabat (MA) · Tunis (TN)<br><strong>Southern Africa:</strong> Johannesburg · Cape Town · Durban (ZA) · Lusaka (ZM) · Harare (ZW)<br><strong>West Africa:</strong> Lagos &amp; Abuja (NG) · Accra &amp; Kumasi (GH) · Dakar (SN) · Abidjan (CI)</td></tr>
+        <tr><td>Language</td><td>English · Arabic (EG, MA, TN) · French (MA, RW, SN, CI, TN) · Amharic (ETH) · Swahili (KE, TZ, UG)</td></tr>
+        <tr><td>Interests (match any)</td><td>Electric vehicle · Fleet management · Renewable energy · Electric motorcycles &amp; scooters · Logistics · Automotive industry · Hybrid electric vehicle</td></tr>
+        <tr><td>Narrow by (AND)</td><td>CEO · MD/CEO · Business Owner · Founder · Managing Director · Chief procurement officer · Purchasing Manager · Supply Chain Procurement Manager · Fleet Manager/Dispatch · BDM · Executive director</td></tr>
+        <tr><td>Education</td><td>University graduate or above</td></tr>
+        <tr><td>Device</td><td>Mobile-first · Android priority</td></tr>
+        <tr><td>Optimization</td><td>Leads — Instant Form · WhatsApp CTA available (KE · TZ · UG · NG · GH · SN · ZA)</td></tr>
+        <tr><td>Form question</td><td>Business type (fleet / transit / private) · No. of vehicles</td></tr>
+        <tr><td>Exclude</td><td>HubSpot contacts · Website visitors 180d · Current customers</td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SECTION 5: AFRICA GOOGLE KEYWORDS ══════════════════ -->
+<section id="africa-keywords" class="sec">
+  <div class="sec-hd"><div class="sec-ic">🔍</div><div><h2>Africa — Google Ads Keywords</h2><p>Search targeting per Kazam module · High / Medium / Broad intent · East Africa (KE · RW · ETH · TZ · UG) · North Africa (MA · EG · TN) · Southern Africa (ZA · ZM · ZW) · West Africa (GH · NG · SN · CI)</p></div></div>
+
+  <div class="sg">
+    <div class="sc r"><div class="sl">High Intent</div><div class="sv">🔴</div><div class="ss">Exact + Phrase match · Max bid</div></div>
+    <div class="sc b"><div class="sl">Medium Intent</div><div class="sv">🔵</div><div class="ss">Phrase match · Standard bid</div></div>
+    <div class="sc g"><div class="sl">Broad / Discovery</div><div class="sv">🟢</div><div class="ss">Broad modified · Low bid</div></div>
+    <div class="sc p"><div class="sl">Negative Keywords</div><div class="sv">⛔</div><div class="ss">Exclude irrelevant traffic</div></div>
+  </div>
+
+  <!-- ENERGY MANAGEMENT -->
+  <div class="card">
+    <div class="ch"><h3>⚡ Energy Management</h3><span class="tag r">Energy Management Module</span></div>
+    <div class="cb">
+      <p style="font-size:11px;font-weight:700;color:var(--g3);letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px">High Intent 🔴 — Exact + Phrase match</p>
+      <div class="kw-grid">
+        <span class="kw h">energy management system</span>
+        <span class="kw h">energy management systems</span>
+        <span class="kw h">energy management solutions</span>
+        <span class="kw h">energy monitoring system</span>
+        <span class="kw h">energy monitoring software</span>
+        <span class="kw h">power monitoring system</span>
+      </div>
+      <p style="font-size:11px;font-weight:700;color:var(--g3);letter-spacing:.5px;text-transform:uppercase;margin:10px 0 8px">Medium Intent 🔵 — Phrase match</p>
+      <div class="kw-grid">
+        <span class="kw m">energy efficiency for businesses</span>
+        <span class="kw m">ev system</span>
+        <span class="kw m">ev solutions</span>
+        <span class="kw m">ev infrastructure</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHARGING MANAGEMENT -->
+  <div class="card">
+    <div class="ch"><h3>🔌 Charging Management</h3><span class="tag b">Charging Management Module</span></div>
+    <div class="cb">
+      <p style="font-size:11px;font-weight:700;color:var(--g3);letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px">High Intent 🔴 — Exact + Phrase match</p>
+      <div class="kw-grid">
+        <span class="kw h">electric vehicle charging solutions</span>
+        <span class="kw h">ev charging solutions</span>
+        <span class="kw h">ev charging solutions companies</span>
+        <span class="kw h">charging station management system</span>
+        <span class="kw h">ev charging management software</span>
+        <span class="kw h">smart charging solutions</span>
+        <span class="kw h">charge point operator</span>
+        <span class="kw h">ocpp</span>
+        <span class="kw h">charger ocpp</span>
+        <span class="kw h">ev charger software</span>
+        <span class="kw h">e mobility service provider</span>
+        <span class="kw h">load management system ev</span>
+      </div>
+      <p style="font-size:11px;font-weight:700;color:var(--g3);letter-spacing:.5px;text-transform:uppercase;margin:10px 0 8px">Medium Intent 🔵 — Phrase match</p>
+      <div class="kw-grid">
+        <span class="kw m">ev charging company</span>
+        <span class="kw m">ev charge company</span>
+        <span class="kw m">charging solutions</span>
+        <span class="kw m">charging station business</span>
+        <span class="kw m">charging station installation</span>
+        <span class="kw m">charging station installation company</span>
+        <span class="kw m">ev charging station installation</span>
+        <span class="kw m">ev charger supplier</span>
+        <span class="kw m">ev charger manufacturers</span>
+        <span class="kw m">ev charger setup</span>
+        <span class="kw m">ev charger app</span>
+        <span class="kw m">app for charging stations</span>
+        <span class="kw m">app for ev charging stations</span>
+        <span class="kw m">free ev charging app</span>
+        <span class="kw m">ev app</span>
+      </div>
+      <p style="font-size:11px;font-weight:700;color:var(--g3);letter-spacing:.5px;text-transform:uppercase;margin:10px 0 8px">Discovery / How-To 🟢 — Broad modified</p>
+      <div class="kw-grid">
+        <span class="kw b">cost of electric car charging station</span>
+        <span class="kw b">charging station cost</span>
+        <span class="kw b">charging station business cost</span>
+        <span class="kw b">how to set up electric charging station</span>
+        <span class="kw b">how to make ev charging station</span>
+        <span class="kw b">how to start an electric charging station business</span>
+        <span class="kw b">how to establish ev charging station</span>
+        <span class="kw b">setting up electric vehicle charging station</span>
+        <span class="kw b">installation of ev charging stations</span>
+        <span class="kw b">ev charging station how to open</span>
+        <span class="kw b">ev charging setup cost</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLEET MANAGEMENT -->
+  <div class="card">
+    <div class="ch"><h3>🚛 Fleet Management</h3><span class="tag g">Fleet Management Module</span></div>
+    <div class="cb">
+      <p style="font-size:11px;font-weight:700;color:var(--g3);letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px">High Intent 🔴 — Exact + Phrase match</p>
+      <div class="kw-grid">
+        <span class="kw h">electric fleet management software</span>
+        <span class="kw h">electric fleet management systems</span>
+      </div>
+      <p style="font-size:11px;font-weight:700;color:var(--g3);letter-spacing:.5px;text-transform:uppercase;margin:10px 0 8px">Medium Intent 🔵 — Phrase match</p>
+      <div class="kw-grid">
+        <span class="kw m">ev solutions</span>
+        <span class="kw m">ev infrastructure</span>
+        <span class="kw m">ev system</span>
+      </div>
+      <p style="font-size:11px;font-weight:700;color:var(--g3);letter-spacing:.5px;text-transform:uppercase;margin:10px 0 8px">Discovery 🟢 — Broad modified</p>
+      <div class="kw-grid">
+        <span class="kw b">electric vehicle charging solutions</span>
+        <span class="kw b">charging station business</span>
+      </div>
+      <div class="insight"><strong>Note:</strong> Thin keyword coverage for Fleet in the provided list. Recommend expanding with: EV fleet management, depot charging, fleet electrification, commercial EV fleet — to be added once confirmed.</div>
+    </div>
+  </div>
+
+  <!-- BATTERY MANAGEMENT -->
+  <div class="card">
+    <div class="ch"><h3>🔋 Battery Management</h3><span class="tag p">Battery Management Module</span></div>
+    <div class="cb">
+      <p style="font-size:11px;font-weight:700;color:var(--g3);letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px">High Intent 🔴 — Exact + Phrase match</p>
+      <div class="kw-grid">
+        <span class="kw h">battery management system</span>
+      </div>
+      <p style="font-size:11px;font-weight:700;color:var(--g3);letter-spacing:.5px;text-transform:uppercase;margin:10px 0 8px">Medium Intent 🔵 — Phrase match</p>
+      <div class="kw-grid">
+        <span class="kw m">ev solutions</span>
+        <span class="kw m">ev system</span>
+        <span class="kw m">ev infrastructure</span>
+      </div>
+      <div class="insight"><strong>Note:</strong> Battery module has minimal keyword coverage in the provided list. Recommend adding: EV battery monitoring, battery as a service, battery swapping, battery health management — to be added once confirmed.</div>
+    </div>
+  </div>
+
+  <!-- NEGATIVE KEYWORDS -->
+  <div class="card">
+    <div class="ch"><h3>⛔ Negative Keywords — All Africa Campaigns</h3><span class="tag r">Exclude from all ad groups</span></div>
+    <div class="cb">
+      <div class="kw-grid">
+        <span class="kw">free</span>
+        <span class="kw">DIY</span>
+        <span class="kw">used EV</span>
+        <span class="kw">second hand electric car</span>
+        <span class="kw">Tesla</span>
+        <span class="kw">BYD</span>
+        <span class="kw">jobs</span>
+        <span class="kw">salary</span>
+        <span class="kw">how to charge at home</span>
+        <span class="kw">personal EV charger</span>
+        <span class="kw">EV charger price</span>
+        <span class="kw">cheap electric car</span>
+        <span class="kw">electric car for sale</span>
+        <span class="kw">EV buy</span>
+        <span class="kw">buy electric vehicle</span>
+      </div>
+      <div class="insight"><strong>Match type:</strong> Add all negatives as Exact + Phrase to avoid blocking relevant broad queries. Review search term reports weekly for first 2 weeks.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+function show(id, el){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(el) el.classList.add('active');
+}
+</script>
+</body>
+</html>
